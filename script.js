@@ -63,10 +63,23 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    for (i = 0; i < 5; ++i) {
+        let humanSelection = humanChoice();
+        let computerSelection = computerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if (humanScore == computerScore) {
+        console.log("Draw\nGoodGame!");
+    }
+    else if (humanScore >= computerScore) {
+        console.log("You won\nCongratulations");
+    }
+    else {
+        console.log("Computer won\nYou lost");
+    }
+}
+
 let humanScore = 0, computerScore = 0;
 
-for (i = 0; i < 5; ++i) {
-    // let humanSelection = humanChoice();
-    // let computerSelection = computerChoice();
-    playRound(humanChoice(), computerChoice());
-}
+playGame();
